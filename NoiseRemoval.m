@@ -1,16 +1,18 @@
-A = rgb2gray(imread("img\profile.jpg"));
+A = imnoise(rgb2gray(imread("img\profile.jpg")),"salt & pepper");
 [R ,C] = size(A);
 B = zeros(R, C);
 thresh = 127;
-for i=2:1:R-1
-    for j=2:1:C-1
-        temp = A(i-1:i+1, j-1:j+1);
+for i=3:1:R-2
+    for j=3:1:C-2
+        temp = A(i-2:i+2, j-2:j+2);
         ntemp = reshape(temp.',1,[]);
         sumtemp = sum(ntemp);
-        value = sumtemp/9;
+        value = sumtemp/25;
         B(i,j) = value;
     end
 end
 
-figure;imshow(B,[])
+C = imbinarize(uint8(B));
 figure;imshow(A)
+figure;imshow(B,[])
+figure;imshow(C)

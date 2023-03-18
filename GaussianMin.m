@@ -1,4 +1,4 @@
-A = rgb2gray(imread("img\profile.jpg"));
+A = imnoise(rgb2gray(imread("img\profile.jpg")),"salt");
 [R ,C] = size(A);
 B = zeros(R, C);
 thresh = 127;
@@ -10,6 +10,5 @@ for i=2:1:R-1
         B(i,j) = value;
     end
 end
-
-figure;imshow(B,[])
 figure;imshow(A)
+figure;imshow(B,[])
