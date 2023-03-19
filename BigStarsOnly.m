@@ -1,10 +1,7 @@
 A = rgb2gray(imread("img/stars.PNG"));
-
-myFilter = ones(3,3);
-B = imfilter(double(A),myFilter);
-level = (graythresh(uint8(B)));
-C = (imbinarize((B),'global'));
-D = double(A) - (C);
+B = imgaussfilt(A,2);
+C = (imbinarize((B)));
+D = double(A) .* double(C);
 figure;imshow(A)
 figure;imshow(B,[])
 figure;imshow(C,[])
