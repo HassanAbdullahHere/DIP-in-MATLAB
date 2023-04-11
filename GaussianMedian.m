@@ -1,4 +1,4 @@
-A = imnoise(rgb2gray(imread("img\profile.jpg")),"salt & pepper",0.2);
+A = imnoise(rgb2gray(imread("img\profile.jpg")),"salt & pepper",0.1);
 [R ,C] = size(A);
 B = zeros(R, C);
 thresh = 127;

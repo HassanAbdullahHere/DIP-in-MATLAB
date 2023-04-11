@@ -5,9 +5,9 @@ myfilter3 = 1/9*eye(9);
 myfilter4 = [-1 -1 0; -1 0 1; 0 1 1];
 myfilter5 = ones(7,7);
 C = 1.4*A;
-B = imfilter(C,myfilter1);
+B = imfilter(A,myfilter1);
 
 
 
 figure;imshow(A)
-figure;imshow(C,[])
+figure;imshow(B,[])
